@@ -1,0 +1,47 @@
+syntax = "proto3";
+package profile;
+
+option go_package = "posts";
+
+import "google/api/annotations.proto";
+
+service Posts {
+    rpc Get (GetRequest) returns (GetResponse) {
+        option (google.api.http) = {
+                                get: "/v1/post/{user_id}"
+        };
+    }
+
+    rpc Create (CreateRequest) returns (CreateResponse) {
+        option (google.api.http) = {
+                                post: "/v1/post"
+                                body: "*"
+        };
+    }
+}
+
+message Post {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string type = 4;
+}
+
+message GetRequest {
+    string user_id = 1;
+}
+
+message GetResponse {
+    repeated Post posts = 1;
+}
+
+message CreateRequest {
+    string user_id = 1;
+    string name = 2;
+    string description = 3;
+    string type = 4;
+}
+
+message CreateResponse {
+    string id = 1;
+}
