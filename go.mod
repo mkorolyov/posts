@@ -1,4 +1,4 @@
-module humans.net/ms/posts
+module github.com/mkorolyov/posts
 
 go 1.12
 
