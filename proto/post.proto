@@ -1,5 +1,5 @@
 syntax = "proto3";
-package profile;
+package posts;
 
 option go_package = "posts";
 

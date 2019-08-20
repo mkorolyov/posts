@@ -22,7 +22,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/profileCreateResponse"
+              "$ref": "#/definitions/postsCreateResponse"
             }
           }
         },
@@ -32,7 +32,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/profileCreateRequest"
+              "$ref": "#/definitions/postsCreateRequest"
             }
           }
         ],
@@ -48,7 +48,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/profileGetResponse"
+              "$ref": "#/definitions/postsGetResponse"
             }
           }
         },
@@ -67,7 +67,7 @@
     }
   },
   "definitions": {
-    "profileCreateRequest": {
+    "postsCreateRequest": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -84,7 +84,7 @@
         }
       }
     },
-    "profileCreateResponse": {
+    "postsCreateResponse": {
       "type": "object",
       "properties": {
         "id": {
@@ -92,18 +92,18 @@
         }
       }
     },
-    "profileGetResponse": {
+    "postsGetResponse": {
       "type": "object",
       "properties": {
         "posts": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/profilePost"
+            "$ref": "#/definitions/postsPost"
           }
         }
       }
     },
-    "profilePost": {
+    "postsPost": {
       "type": "object",
       "properties": {
         "id": {
