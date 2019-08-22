@@ -22,9 +22,7 @@ func main() {
 	// Create a cmux.
 	m := cmux.New(l)
 
-	// Match connections in order:
-	// First grpc, then HTTP, and otherwise Go RPC/TCP.
-	grpcL := m.MatchWithWriters(cmux.HTTP2MatchHeaderFieldPrefixSendSettings("content-type", "application/grpc"))
+	grpcL := m.Match(cmux.HTTP2())
 	httpL := m.Match(cmux.HTTP1Fast())
 
 	// Create your protocol servers.
