@@ -10,5 +10,9 @@ gen:
 	--swagger_out=logtostderr=true:. \
 	post.proto
 
-run: gen
-	GRPC_GO_LOG_VERBOSITY_LEVEL=99 GRPC_GO_LOG_SEVERITY_LEVEL=info go run cmd/posts/main.go
+run:
+	GRPC_GO_LOG_VERBOSITY_LEVEL=99 GRPC_GO_LOG_SEVERITY_LEVEL=info go run \
+    	-ldflags "-X github.com/mkorolyov/core/discovery/consul.env=dev" \
+    	-ldflags "-X github.com/mkorolyov/core/discovery/consul.ip=0.0.0.0" \
+    	-ldflags "-X github.com/mkorolyov/core/discovery/consul.port=9091" \
+    	cmd/posts/main.go
